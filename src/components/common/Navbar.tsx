@@ -66,9 +66,11 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group select-none"
               onClick={() => navigateTo('home')}
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-teal-700 via-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-teal-700/20 group-hover:scale-105 transition-transform duration-200 font-black text-lg sm:text-xl tracking-tight">
-                KS
-              </div>
+              <img
+                src={APP_CONFIG.logoIcon}
+                alt="KaamSaathi Logo"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-contain shadow-xs border border-slate-100 group-hover:scale-105 transition-transform duration-200 bg-white"
+              />
               <div>
                 <span className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 block leading-none">
                   Kaam<span className="text-teal-700">Saathi</span>

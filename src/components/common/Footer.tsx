@@ -12,9 +12,11 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 mb-8 sm:mb-10">
           <div className="col-span-2 space-y-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-teal-600 to-emerald-500 flex items-center justify-center text-white font-black text-sm shadow-sm">
-                KS
-              </div>
+              <img
+                src={APP_CONFIG.logoIcon}
+                alt="KaamSaathi"
+                className="w-8 h-8 rounded-lg object-contain bg-white p-0.5 shadow-sm"
+              />
               <span className="font-black text-lg text-white tracking-tight">KaamSaathi</span>
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed text-xs">
