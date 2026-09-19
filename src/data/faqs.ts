@@ -2,27 +2,27 @@ import { FAQItem } from '../types';
 
 export const FAQS: FAQItem[] = [
   {
-    q: 'Is joining free?',
-    a: 'Yes. Joining the community itself does not require a joining fee or investment.'
+    q: 'Is joining KaamSaathi free?',
+    a: 'Yes, 100% free. Joining the community never requires a fee, subscription, or investment.'
   },
   {
-    q: 'How do I earn?',
-    a: 'Eligible members can earn rewards by completing available and verified opportunities like surveys, app testing, and feedback.'
+    q: 'Do I complete tasks on this website?',
+    a: 'No. This website is a platform showcase and informational portal. All active opportunities, surveys, and follow tasks are published and verified within our official WhatsApp and Telegram community groups.'
   },
   {
-    q: 'Is income guaranteed?',
-    a: 'No. Opportunities and rewards depend on campaign availability and successful verification. We do not guarantee fixed income.'
+    q: 'How do community members receive rewards?',
+    a: 'Once a campaign task (like following a verified creator or answering a survey) is verified, rewards are sent directly via UPI (PhonePe, GPay, Paytm) or digital mobile recharge coupons.'
   },
   {
-    q: 'Do I have to invite people?',
-    a: 'No. Referrals are optional. You can participate in all open tasks on your own.'
+    q: 'Is income or reward guaranteed?',
+    a: 'No. Rewards depend strictly on available brand/creator campaigns and verified submissions. We do not guarantee a fixed daily or monthly wage.'
   },
   {
-    q: 'Can I withdraw my rewards?',
-    a: 'For this prototype, the reward balance is simulated. A real withdrawal system (UPI / vouchers) can be connected later.'
+    q: 'Do I have to invite other people to participate?',
+    a: 'No. Referrals are completely optional. You can participate in open community tasks independently.'
   },
   {
-    q: 'Is this an investment platform?',
-    a: 'No. Do not deposit money to participate. We will never ask you to pay money to unlock tasks.'
+    q: 'Can creators and brands list campaigns here?',
+    a: 'Yes! Creators and homegrown Indian businesses looking for genuine, non-bot Indian followers or user feedback can partner with KaamSaathi to reach our verified community.'
   }
 ];

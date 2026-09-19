@@ -14,7 +14,7 @@ const renderApp = () => {
   );
 };
 
-describe('KaamSaathi Application Integration', () => {
+describe('KaamSaathi Showcase Platform Integration', () => {
   beforeEach(() => {
     localStorage.clear();
   });
@@ -28,22 +28,40 @@ describe('KaamSaathi Application Integration', () => {
     expect(mainHeading).toHaveTextContent(/useful banao/i);
   });
 
-  it('navigates to the Dashboard view when Dashboard button is clicked', () => {
+  it('navigates to the Opportunities section when clicked', () => {
     renderApp();
-    const dashboardButtons = screen.getAllByRole('button', { name: /Dashboard/i });
-    fireEvent.click(dashboardButtons[0]);
+    const oppButtons = screen.getAllByRole('button', { name: /Opportunities/i });
+    fireEvent.click(oppButtons[0]);
 
-    expect(screen.getByRole('heading', { name: /Namaste/i })).toBeInTheDocument();
-    expect(screen.getByText(/Available Balance/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sample Active Tasks & Campaigns/i)).toBeInTheDocument();
   });
 
-  it('navigates to Admin view and displays campaign management', () => {
+  it('navigates to How It Works section when clicked', () => {
     renderApp();
-    const adminButtons = screen.getAllByRole('button', { name: /Admin/i });
-    fireEvent.click(adminButtons[0]);
+    const howButtons = screen.getAllByRole('button', { name: /How It Works/i });
+    fireEvent.click(howButtons[0]);
 
-    expect(screen.getByText(/Admin Desi Dashboard/i)).toBeInTheDocument();
-    expect(screen.getByText(/Create Follower or Task Campaign/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /How It Works/i })).toBeInTheDocument();
+  });
+
+  it('navigates to Rewards section when clicked', () => {
+    renderApp();
+    const rewardButtons = screen.getAllByRole('button', { name: /Rewards/i });
+    fireEvent.click(rewardButtons[0]);
+
+    expect(screen.getByText(/Small rewards can make a difference/i)).toBeInTheDocument();
+  });
+
+  it('navigates to FAQ section and toggles accordion items', () => {
+    renderApp();
+    const faqButtons = screen.getAllByRole('button', { name: /FAQ/i });
+    fireEvent.click(faqButtons[0]);
+
+    expect(screen.getByText(/Frequently Asked Questions/i)).toBeInTheDocument();
+
+    const faqQuestion = screen.getByRole('button', { name: /Is joining KaamSaathi free\?/i });
+    fireEvent.click(faqQuestion);
+    expect(screen.getByText(/100% free/i)).toBeInTheDocument();
   });
 
   it('opens detail modal when Details button is clicked on an opportunity', () => {
@@ -52,23 +70,12 @@ describe('KaamSaathi Application Integration', () => {
     fireEvent.click(detailButtons[0]);
 
     expect(screen.getByRole('dialog')).toBeInTheDocument();
-    expect(screen.getByText(/About This Campaign/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Participate Now/i })).toBeInTheDocument();
-  });
+    expect(screen.getByText(/About This Opportunity/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Join Community to Participate/i })).toBeInTheDocument();
 
-  it('completes a task in simulate modal and increments the balance', () => {
-    renderApp();
-    // Click on the first "Start Task" button
-    const startButtons = screen.getAllByRole('button', { name: /Start Task/i });
-    fireEvent.click(startButtons[0]);
-
-    // Modal should appear
-    expect(screen.getByText(/Task Simulation/i)).toBeInTheDocument();
-    const completeButton = screen.getByRole('button', { name: /Simulate Complete/i });
-    fireEvent.click(completeButton);
-
-    // Toast with Shabash should appear
-    expect(screen.getByText(/Shabash! Activity verified/i)).toBeInTheDocument();
+    const closeButtons = screen.getAllByRole('button', { name: /Close/i });
+    fireEvent.click(closeButtons[0]);
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
   it('filters opportunities by category', () => {
@@ -79,24 +86,7 @@ describe('KaamSaathi Application Integration', () => {
     expect(surveyFilter).toHaveClass('bg-teal-700');
   });
 
-  it('opens and closes the withdraw modal', () => {
-    renderApp();
-    // Navigate to dashboard
-    const dashboardButtons = screen.getAllByRole('button', { name: /Dashboard/i });
-    fireEvent.click(dashboardButtons[0]);
-
-    const withdrawButton = screen.getByRole('button', { name: /Withdraw Balance/i });
-    fireEvent.click(withdrawButton);
-
-    expect(screen.getByText(/Simulated Demo Balance/i)).toBeInTheDocument();
-
-    const closeButton = screen.getByRole('button', { name: /Samajh Gaya/i });
-    fireEvent.click(closeButton);
-
-    expect(screen.queryByText(/Simulated Demo Balance/i)).not.toBeInTheDocument();
-  });
-
-  it('supports mobile bottom navigation to switch routes', () => {
+  it('supports mobile bottom navigation to switch sections', () => {
     renderApp();
     const mobileNav = screen.getByRole('navigation', { name: /Mobile Bottom Navigation/i });
     expect(mobileNav).toBeInTheDocument();
@@ -104,6 +94,14 @@ describe('KaamSaathi Application Integration', () => {
     const tasksTab = within(mobileNav).getByRole('button', { name: /^Tasks$/i });
     fireEvent.click(tasksTab);
 
-    expect(screen.getByText(/Sample Active Tasks/i)).toBeInTheDocument();
+    expect(screen.getByText(/Sample Active Tasks & Campaigns/i)).toBeInTheDocument();
+  });
+
+  it('navigates to Rules & Terms page', () => {
+    renderApp();
+    const termsButtons = screen.getAllByRole('button', { name: /Terms & Rules/i });
+    fireEvent.click(termsButtons[0]);
+
+    expect(screen.getByText(/Zero Investment Policy/i)).toBeInTheDocument();
   });
 });

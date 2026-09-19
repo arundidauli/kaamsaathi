@@ -1,6 +1,6 @@
 import React from 'react';
-import { UserPlus, Send, Check, Plus } from 'lucide-react';
-import { useApp } from '../../hooks/useApp';
+import { UserPlus, Send, Check, MessageSquare, Mail } from 'lucide-react';
+import { APP_CONFIG } from '../../config/appConfig';
 
 const InstagramIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg
@@ -36,8 +36,6 @@ const YoutubeIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 export const SocialGrowthSection: React.FC = () => {
-  const { navigateTo } = useApp();
-
   return (
     <section className="py-14 bg-gradient-to-r from-emerald-900 via-teal-950 to-slate-900 text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -54,7 +52,7 @@ export const SocialGrowthSection: React.FC = () => {
               Instagram, YouTube aur Telegram channels ke liye authentic Indian followers. Humare verified community
               members aapke content ko discover karte hain aur genuine follow/subscribe karte hain.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-2">
               <div className="bg-white/5 border border-white/10 p-3 rounded-2xl">
                 <InstagramIcon className="w-5 h-5 text-rose-400 mb-1" />
                 <p className="font-bold text-xs text-white">Instagram Growth</p>
@@ -75,13 +73,13 @@ export const SocialGrowthSection: React.FC = () => {
 
           <div className="lg:col-span-5 bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 space-y-4">
             <h3 className="text-base font-bold text-white flex items-center justify-between">
-              <span>Creator / Brand Campaign</span>
-              <span className="text-[10px] bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full font-extrabold">
-                Active
+              <span>Creators & Brands Partner With Us</span>
+              <span className="text-[10px] bg-emerald-400 text-slate-950 px-2 py-0.5 rounded-full font-extrabold">
+                Partner
               </span>
             </h3>
-            <p className="text-xs text-slate-300">
-              Kya aap ek creator ya local merchant hain jinko genuine followers aur community chahiye?
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Kya aap ek creator ya brand hain jinko genuine Indian followers, app testing ya feedback audience chahiye?
             </p>
             <div className="space-y-2 text-xs">
               <div className="flex items-center gap-2">
@@ -94,16 +92,28 @@ export const SocialGrowthSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Members receive ₹10–₹25 per verified task</span>
+                <span>Transparent token distribution to members</span>
               </div>
             </div>
-            <button
-              onClick={() => navigateTo('admin')}
-              className="w-full py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition shadow-lg flex items-center justify-center gap-2"
-            >
-              <Plus className="w-4 h-4" />
-              <span>Launch a Follower Campaign (Demo)</span>
-            </button>
+
+            <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+              <a
+                href={APP_CONFIG.partnerWhatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-3 px-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition shadow-lg flex items-center justify-center gap-2 active:scale-95"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>List Your Campaign</span>
+              </a>
+              <a
+                href={`mailto:${APP_CONFIG.partnerEmail}`}
+                className="py-3 px-4 rounded-2xl bg-white/15 hover:bg-white/25 text-white font-bold text-xs transition flex items-center justify-center gap-1.5 active:scale-95"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                <span>Email Us</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

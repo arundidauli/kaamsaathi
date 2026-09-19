@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
               <span className="font-black text-lg text-white tracking-tight">KaamSaathi</span>
             </div>
             <p className="text-slate-400 max-w-sm leading-relaxed text-xs">
-              Phone se free time ko useful banao. Genuine opportunities for Indian smartphone users without fake promises.
+              Phone se free time ko useful banao. Genuine opportunities showcase for Indian smartphone users without fake promises.
             </p>
             <div className="flex items-center gap-2.5 pt-1">
               <a
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button onClick={() => navigateTo('rewards')} className="hover:text-white transition">
-                  Rewards
+                  Rewards Structure
                 </button>
               </li>
             </ul>
@@ -82,14 +82,25 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateTo('dashboard')} className="hover:text-white transition">
-                  Member Dashboard
-                </button>
+                <a
+                  href={APP_CONFIG.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition flex items-center gap-1 text-emerald-400 font-semibold"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>WhatsApp Group</span>
+                </a>
               </li>
               <li>
-                <button onClick={() => navigateTo('admin')} className="hover:text-white transition">
-                  Admin Panel
-                </button>
+                <a
+                  href={APP_CONFIG.partnerWhatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-400 transition"
+                >
+                  Partner With Us
+                </a>
               </li>
             </ul>
           </div>
@@ -113,7 +124,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-6 sm:pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[10px] sm:text-[11px] text-center sm:text-left">
-          <p>© 2026 KaamSaathi. All rights reserved. Indian Community Web App.</p>
+          <p>© 2026 KaamSaathi. All rights reserved. Indian Community Platform.</p>
           <p className="flex items-center gap-1.5 justify-center">
             <span>Made for genuine community participation</span>
             <span>•</span>

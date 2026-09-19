@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { CheckCircle2, X, Clock } from 'lucide-react';
+import { CheckCircle2, X, Clock, MessageSquare, Info } from 'lucide-react';
 import { useApp } from '../../hooks/useApp';
+import { APP_CONFIG } from '../../config/appConfig';
 
 export const OpportunityDetailModal: React.FC = () => {
-  const { selectedOpportunity, setSelectedOpportunity, startOpportunity } = useApp();
+  const { selectedOpportunity, setSelectedOpportunity } = useApp();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -18,12 +19,6 @@ export const OpportunityDetailModal: React.FC = () => {
   }, [selectedOpportunity, setSelectedOpportunity]);
 
   if (!selectedOpportunity) return null;
-
-  const handleParticipate = () => {
-    const opp = selectedOpportunity;
-    setSelectedOpportunity(null);
-    startOpportunity(opp);
-  };
 
   return (
     <div
@@ -77,7 +72,7 @@ export const OpportunityDetailModal: React.FC = () => {
 
           <div>
             <h4 className="font-bold text-slate-900 mb-1 text-[11px] sm:text-xs uppercase tracking-wider">
-              About This Campaign
+              About This Opportunity
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed">
               {selectedOpportunity.description}
@@ -86,7 +81,7 @@ export const OpportunityDetailModal: React.FC = () => {
 
           <div>
             <h4 className="font-bold text-slate-900 mb-2 text-[11px] sm:text-xs uppercase tracking-wider">
-              Rules & Requirements
+              Rules & Eligibility
             </h4>
             <ul className="space-y-1.5 text-xs text-slate-600">
               {selectedOpportunity.requirements.map((req, i) => (
@@ -100,13 +95,20 @@ export const OpportunityDetailModal: React.FC = () => {
 
           <div>
             <h4 className="font-bold text-slate-900 mb-2 text-[11px] sm:text-xs uppercase tracking-wider">
-              Steps to Complete
+              How It Works
             </h4>
             <ol className="space-y-1.5 text-xs text-slate-600 list-decimal pl-4">
               {selectedOpportunity.steps.map((st, i) => (
                 <li key={i}>{st}</li>
               ))}
             </ol>
+          </div>
+
+          <div className="bg-teal-50 border border-teal-200 p-3.5 rounded-2xl flex items-start gap-2.5 text-xs text-teal-900">
+            <Info className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
+            <p className="leading-relaxed">
+              Tasks and campaigns are shared directly within the verified KaamSaathi WhatsApp community. Join the free group to participate when slots open.
+            </p>
           </div>
         </div>
 
@@ -117,12 +119,15 @@ export const OpportunityDetailModal: React.FC = () => {
           >
             Close
           </button>
-          <button
-            onClick={handleParticipate}
-            className="px-6 py-2.5 text-xs font-bold text-white bg-teal-700 hover:bg-teal-800 rounded-xl transition shadow-xs active:scale-95"
+          <a
+            href={APP_CONFIG.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition shadow-xs active:scale-95"
           >
-            Participate Now
-          </button>
+            <MessageSquare className="w-4 h-4" />
+            <span>Join Community to Participate</span>
+          </a>
         </div>
       </div>
     </div>

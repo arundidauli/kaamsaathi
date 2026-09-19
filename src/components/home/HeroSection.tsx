@@ -3,18 +3,17 @@ import {
   MessageSquare,
   ArrowRight,
   UserPlus,
-  Smartphone,
   CheckCircle2,
   Heart,
   IndianRupee,
-  QrCode,
   Sparkles,
+  ShieldCheck,
 } from 'lucide-react';
 import { useApp } from '../../hooks/useApp';
 import { APP_CONFIG } from '../../config/appConfig';
 
 export const HeroSection: React.FC = () => {
-  const { navigateTo, rewardBalance } = useApp();
+  const { navigateTo } = useApp();
 
   return (
     <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-teal-50/70 via-emerald-50/30 to-white">
@@ -27,12 +26,12 @@ export const HeroSection: React.FC = () => {
           {/* Hero Left Content */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
             {/* Honest Desi Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 border border-teal-200/90 text-teal-900 text-[11px] sm:text-xs font-bold shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-teal-200/90 text-teal-900 text-[11px] sm:text-xs font-bold shadow-xs">
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>100% Free Desi Community • Pure Indian Rupee (₹) • No Fees</span>
+              <span>100% Free Desi Community • Pure Indian Rupee (₹) • Zero Investment</span>
             </div>
 
-            <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.18] sm:leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.18] sm:leading-[1.12]">
               Phone se free time ko{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-700 via-emerald-600 to-amber-600">
                 useful banao
@@ -40,19 +39,19 @@ export const HeroSection: React.FC = () => {
               .
             </h1>
 
-            <p className="text-xs sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
-              KaamSaathi ek digital Indian community hai jahan aapko <strong>real social followers & channel support</strong>,{' '}
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
+              KaamSaathi ek digital Indian community platform hai jahan members ko <strong>real social creator follows</strong>,{' '}
               app testing, feedback aur genuine surveys milte hain. Real Indian creators aur local businesses ko grow karne mein{' '}
-              help karo aur seedha <strong>₹ Rupees</strong> reward pao.
+              help karo aur seedha <strong>₹ Indian Rupees</strong> reward pao.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 pt-1">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <a
                 href={APP_CONFIG.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-7 sm:py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/25 active:scale-98 transition-all text-xs sm:text-sm"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/25 active:scale-98 transition-all text-sm"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Join WhatsApp Community</span>
@@ -61,18 +60,17 @@ export const HeroSection: React.FC = () => {
 
               <button
                 onClick={() => navigateTo('opportunities')}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-2xl font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs hover:border-slate-300 active:scale-98 transition-all text-xs sm:text-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs hover:border-slate-300 active:scale-98 transition-all text-sm"
               >
                 <UserPlus className="w-4 h-4 text-emerald-600" />
-                <span>Explore Tasks & Follows</span>
+                <span>Explore Sample Tasks</span>
               </button>
 
               <button
-                onClick={() => navigateTo('dashboard')}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl font-bold text-teal-900 bg-teal-100/80 hover:bg-teal-100 border border-teal-200/80 active:scale-98 transition-all text-xs sm:text-sm"
+                onClick={() => navigateTo('how-it-works')}
+                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl font-bold text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-200 transition-all text-xs sm:text-sm"
               >
-                <Smartphone className="w-4 h-4 text-teal-700" />
-                <span>Wallet (₹{rewardBalance})</span>
+                <span>How It Works →</span>
               </button>
             </div>
 
@@ -93,7 +91,7 @@ export const HeroSection: React.FC = () => {
                 </span>
               </div>
               <p className="text-[10px] sm:text-[11px] text-slate-400 italic">
-                * Real users only. No bot followers or fake accounts permitted. Participation is 100% voluntary.
+                * Real users only. No bot followers or fake accounts. Community participation is 100% free and voluntary.
               </p>
             </div>
           </div>
@@ -128,7 +126,7 @@ export const HeroSection: React.FC = () => {
               </div>
 
               {/* Responsive Floating Badge 1 - Real Rupee Reward */}
-              <div className="absolute -top-3 left-2 sm:-top-5 sm:-left-5 bg-white/95 backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 sm:gap-3 animate-float-slow z-20 max-w-[200px] sm:max-w-none">
+              <div className="absolute -top-3 left-2 sm:-top-5 sm:-left-5 bg-white/95 backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 sm:gap-3 animate-float-slow z-20">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black shrink-0">
                   <IndianRupee className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
@@ -143,7 +141,7 @@ export const HeroSection: React.FC = () => {
               {/* Responsive Floating Badge 2 - Real Follower Activity */}
               <div className="absolute -bottom-4 right-2 sm:-bottom-5 sm:-right-5 bg-slate-900/95 text-white backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-2.5 sm:gap-3 animate-float-delayed z-20">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-teal-500/20 border border-teal-400/30 text-teal-400 flex items-center justify-center shrink-0">
-                  <UserPlus className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <span className="text-[9px] sm:text-[10px] text-slate-400 font-semibold block">Real Social Follower</span>
@@ -158,28 +156,27 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Quick Interactive Mini-Preview Box */}
+            {/* Showcase Highlights Bar */}
             <div className="mt-6 bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
-                  <QrCode className="w-5 h-5" />
+                  <ShieldCheck className="w-5 h-5 text-teal-700" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-900 flex items-center gap-1">
-                    <span>Member Desi Wallet</span>
-                    <Sparkles className="w-3 h-3 text-amber-500" />
-                  </p>
+                  <p className="text-xs font-bold text-slate-900">Genuine Community Model</p>
                   <p className="text-[10px] sm:text-[11px] text-slate-500">
-                    Available: <strong className="text-emerald-700">₹{rewardBalance}</strong> in pure Indian Rupees
+                    Tasks shared directly on WhatsApp & Telegram
                   </p>
                 </div>
               </div>
-              <button
-                onClick={() => navigateTo('dashboard')}
-                className="text-xs font-bold text-teal-700 hover:text-teal-800 bg-teal-50 hover:bg-teal-100 px-3 py-1.5 rounded-xl transition shrink-0"
+              <a
+                href={APP_CONFIG.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-xl transition shrink-0"
               >
-                View →
-              </button>
+                Join Now →
+              </a>
             </div>
           </div>
         </div>

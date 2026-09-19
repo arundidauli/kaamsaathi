@@ -1,14 +1,15 @@
 import React from 'react';
-import { UserPlus, Clock, Check, Sparkles, MessageCircle } from 'lucide-react';
+import { UserPlus, Clock, Check, Sparkles, MessageCircle, MessageSquare } from 'lucide-react';
 import { OpportunityItem } from '../../types';
 import { useApp } from '../../hooks/useApp';
+import { APP_CONFIG } from '../../config/appConfig';
 
 interface OpportunityCardProps {
   opp: OpportunityItem;
 }
 
 export const OpportunityCard: React.FC<OpportunityCardProps> = ({ opp }) => {
-  const { setSelectedOpportunity, startOpportunity } = useApp();
+  const { setSelectedOpportunity } = useApp();
 
   const handleShareWhatsApp = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -70,7 +71,7 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({ opp }) => {
           {/* Requirements List */}
           <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 space-y-1">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-              Requirements:
+              Sample Requirements:
             </span>
             <ul className="text-xs text-slate-600 space-y-1">
               {opp.requirements.slice(0, 2).map((req, i) => (
@@ -88,7 +89,7 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({ opp }) => {
       <div className="p-4 sm:p-5 pt-0">
         <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
           <div>
-            <span className="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Reward</span>
+            <span className="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Estimated Reward</span>
             <span className="text-xl sm:text-2xl font-black text-slate-900 leading-none">
               {opp.rewardDisplay}
             </span>
@@ -109,12 +110,15 @@ export const OpportunityCard: React.FC<OpportunityCardProps> = ({ opp }) => {
             >
               Details
             </button>
-            <button
-              onClick={() => startOpportunity(opp)}
-              className="px-4 py-2 text-xs font-bold text-white bg-teal-700 hover:bg-teal-800 rounded-xl shadow-xs transition duration-150 active:scale-95"
+            <a
+              href={APP_CONFIG.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3.5 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-xs transition duration-150 active:scale-95"
             >
-              Start Task
-            </button>
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Participate</span>
+            </a>
           </div>
         </div>
       </div>

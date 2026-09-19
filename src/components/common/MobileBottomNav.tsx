@@ -1,17 +1,17 @@
 import React from 'react';
-import { Home, Compass, Wallet, Users, UserCheck } from 'lucide-react';
+import { Home, Compass, Gift, Users, MessageSquare } from 'lucide-react';
 import { useApp } from '../../hooks/useApp';
+import { APP_CONFIG } from '../../config/appConfig';
 import { NavigationRoute } from '../../types';
 
 export const MobileBottomNav: React.FC = () => {
-  const { currentRoute, navigateTo, rewardBalance } = useApp();
+  const { currentRoute, navigateTo } = useApp();
 
   const NAV_ITEMS: { id: NavigationRoute; label: string; icon: React.FC<{ className?: string }> }[] = [
     { id: 'home', label: 'Home', icon: Home },
-    { id: 'opportunities', label: 'Tasks', icon: Compass },
-    { id: 'dashboard', label: `₹${rewardBalance}`, icon: Wallet },
+    { id: 'how-it-works', label: 'Process', icon: Compass },
+    { id: 'opportunities', label: 'Tasks', icon: Gift },
     { id: 'community', label: 'Community', icon: Users },
-    { id: 'profile', label: 'Profile', icon: UserCheck },
   ];
 
   return (
@@ -23,7 +23,6 @@ export const MobileBottomNav: React.FC = () => {
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
           const isActive = currentRoute === item.id;
-          const isWallet = item.id === 'dashboard';
 
           return (
             <button
@@ -36,33 +35,33 @@ export const MobileBottomNav: React.FC = () => {
                   : 'text-slate-500 hover:text-slate-800'
               }`}
             >
-              {isWallet ? (
-                <div
-                  className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-black transition-all ${
-                    isActive
-                      ? 'bg-teal-700 text-white shadow-sm shadow-teal-700/30'
-                      : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  <span>₹{rewardBalance}</span>
-                </div>
-              ) : (
-                <>
-                  <div className="relative">
-                    <Icon className={`w-5 h-5 transition-transform ${isActive ? 'scale-110' : ''}`} />
-                    {isActive && (
-                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-teal-700 rounded-full" />
-                    )}
-                  </div>
-                  <span className={`text-[10px] mt-1 leading-none ${isActive ? 'font-black text-teal-800' : 'font-medium'}`}>
-                    {item.label}
-                  </span>
-                </>
-              )}
+              <div className="relative">
+                <Icon className={`w-5 h-5 transition-transform ${isActive ? 'scale-110 text-teal-700' : ''}`} />
+                {isActive && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-teal-700 rounded-full" />
+                )}
+              </div>
+              <span className={`text-[10px] mt-1 leading-none ${isActive ? 'font-black text-teal-800' : 'font-medium'}`}>
+                {item.label}
+              </span>
             </button>
           );
         })}
+
+        {/* Highlighted WhatsApp CTA Button */}
+        <a
+          href={APP_CONFIG.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center justify-center flex-1 py-1 px-1 text-emerald-600 active:scale-95 transition"
+        >
+          <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/30">
+            <MessageSquare className="w-4 h-4" />
+          </div>
+          <span className="text-[10px] mt-1 leading-none font-black text-emerald-700">
+            Join
+          </span>
+        </a>
       </div>
     </nav>
   );

@@ -26,41 +26,6 @@ export interface OpportunityItem {
   platformBadge?: string;
 }
 
-export interface UserProfile {
-  name: string;
-  phone: string;
-  email: string;
-  city: string;
-  joinedDate: string;
-  referralCode: string;
-  whatsappJoined: boolean;
-  telegramJoined: boolean;
-  avatarInitials: string;
-}
-
-export type TransactionStatus = 'Verified' | 'Pending' | 'Rejected';
-
-export interface RewardTransaction {
-  id: string;
-  date: string;
-  activity: string;
-  type: string;
-  amount: number;
-  status: TransactionStatus;
-}
-
-export type MemberStatus = 'Active' | 'Under Review' | 'Inactive';
-
-export interface AdminMember {
-  id: string;
-  name: string;
-  city: string;
-  joined: string;
-  tasks: number;
-  rewards: number;
-  status: MemberStatus;
-}
-
 export type NavigationRoute =
   | 'home'
   | 'how-it-works'
@@ -68,9 +33,7 @@ export type NavigationRoute =
   | 'rewards'
   | 'community'
   | 'faq'
-  | 'dashboard'
-  | 'profile'
-  | 'admin'
+  | 'partner'
   | 'terms'
   | 'privacy';
 

@@ -1,13 +1,11 @@
 import React from 'react';
-import { Share2, ArrowRight, Copy, MessageCircle } from 'lucide-react';
-import { useApp } from '../../hooks/useApp';
+import { Share2, ArrowRight, MessageCircle, MessageSquare } from 'lucide-react';
+import { APP_CONFIG } from '../../config/appConfig';
 
 export const ReferralSection: React.FC = () => {
-  const { profile, copyReferralLink } = useApp();
-
   const handleShareWhatsAppReferral = () => {
     const text = encodeURIComponent(
-      `Join me on KaamSaathi! Complete simple tasks, social follows & surveys to earn pure Indian Rupees (₹). Use my referral code: ${profile.referralCode} at https://kaamsaathi.in/join/${profile.referralCode}`
+      `Check out KaamSaathi! Genuine Indian community to complete creator follows, surveys, and app testing for pure Indian Rupee (₹) rewards. 100% Free: https://kaamsaathi.in`
     );
     window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank', 'noopener,noreferrer');
   };
@@ -27,7 +25,7 @@ export const ReferralSection: React.FC = () => {
             </h2>
 
             <p className="text-xs sm:text-base text-teal-100/90 leading-relaxed">
-              Jab aapka invited member eligible activity complete karta hai, applicable campaigns mein referral reward mil sakta hai.
+              Jab aapka invited member eligible community activity complete karta hai, applicable campaigns mein transparent direct referral reward milta hai.
             </p>
 
             {/* Direct Flow Visual */}
@@ -48,35 +46,28 @@ export const ReferralSection: React.FC = () => {
             </div>
 
             <p className="text-[10px] sm:text-[11px] text-teal-300/80">
-              * Note: We strictly follow direct 1-tier invitations. No downstream pyramid, no multi-level commissions, and no lifetime guarantees.
+              * Note: We strictly follow direct 1-tier invitations. No downstream pyramid, no multi-level commissions, and no false guarantees.
             </p>
 
-            {/* Referral Copy & WhatsApp Share Buttons */}
-            <div className="pt-2 space-y-2">
-              <div className="flex flex-col sm:flex-row items-stretch gap-2 bg-teal-950 p-2 rounded-2xl border border-teal-800">
-                <div className="flex items-center gap-2 px-3 py-2 text-xs font-mono text-teal-200 truncate flex-1">
-                  <span>
-                    Code: <strong className="text-white">{profile.referralCode}</strong>
-                  </span>
-                  <span className="text-teal-600">•</span>
-                  <span className="truncate">kaamsaathi.in/join/{profile.referralCode}</span>
-                </div>
-                <button
-                  onClick={copyReferralLink}
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition shrink-0 active:scale-95"
-                >
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy Link</span>
-                </button>
-              </div>
-
+            {/* Referral Sharing Buttons */}
+            <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
               <button
                 onClick={handleShareWhatsAppReferral}
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs sm:text-sm transition duration-150 shadow-md shadow-emerald-500/20 active:scale-98"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs sm:text-sm transition duration-150 shadow-md shadow-emerald-500/20 active:scale-98"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Invite Friends via WhatsApp</span>
+                <span>Tell Friends on WhatsApp</span>
               </button>
+
+              <a
+                href={APP_CONFIG.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-white/15 hover:bg-white/25 text-white font-bold text-xs sm:text-sm transition duration-150 active:scale-98"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Join Community</span>
+              </a>
             </div>
           </div>
         </div>
