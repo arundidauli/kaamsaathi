@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import { describe, it, expect, beforeEach } from 'vitest';
 import App from '../App';
 import { ToastProvider } from '../context/ToastContext';
@@ -33,7 +33,7 @@ describe('KaamSaathi Application Integration', () => {
     const dashboardButtons = screen.getAllByRole('button', { name: /Dashboard/i });
     fireEvent.click(dashboardButtons[0]);
 
-    expect(screen.getByText(/Welcome back/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Namaste/i })).toBeInTheDocument();
     expect(screen.getByText(/Available Balance/i)).toBeInTheDocument();
   });
 
@@ -94,5 +94,16 @@ describe('KaamSaathi Application Integration', () => {
     fireEvent.click(closeButton);
 
     expect(screen.queryByText(/Simulated Demo Balance/i)).not.toBeInTheDocument();
+  });
+
+  it('supports mobile bottom navigation to switch routes', () => {
+    renderApp();
+    const mobileNav = screen.getByRole('navigation', { name: /Mobile Bottom Navigation/i });
+    expect(mobileNav).toBeInTheDocument();
+
+    const tasksTab = within(mobileNav).getByRole('button', { name: /^Tasks$/i });
+    fireEvent.click(tasksTab);
+
+    expect(screen.getByText(/Sample Active Tasks/i)).toBeInTheDocument();
   });
 });

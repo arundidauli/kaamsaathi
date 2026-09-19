@@ -14,16 +14,20 @@ export const CategoryFilter: React.FC = () => {
   const { categoryFilter, setCategoryFilter } = useApp();
 
   return (
-    <div className="flex items-center gap-1.5 flex-wrap" role="group" aria-label="Filter opportunities by category">
+    <div
+      role="group"
+      aria-label="Filter opportunities by category"
+      className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap"
+    >
       {CATEGORIES.map((cat) => (
         <button
           key={cat}
           type="button"
           onClick={() => setCategoryFilter(cat)}
-          className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+          className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap shrink-0 transition-all duration-150 active:scale-95 ${
             categoryFilter === cat
-              ? 'bg-teal-700 text-white shadow-xs'
-              : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+              ? 'bg-teal-700 text-white shadow-sm shadow-teal-700/20 ring-1 ring-teal-700'
+              : 'bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 shadow-2xs'
           }`}
           aria-pressed={categoryFilter === cat}
         >

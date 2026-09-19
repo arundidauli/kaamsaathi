@@ -3,6 +3,7 @@ import { useApp } from './hooks/useApp';
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { Toast } from './components/common/Toast';
+import { MobileBottomNav } from './components/common/MobileBottomNav';
 import { OpportunityDetailModal } from './components/modals/OpportunityDetailModal';
 import { ParticipateModal } from './components/modals/ParticipateModal';
 import { WithdrawModal } from './components/modals/WithdrawModal';
@@ -109,9 +110,12 @@ export const AppContent: React.FC = () => {
     <div className="min-h-screen bg-white text-slate-900 font-sans flex flex-col selection:bg-teal-100 selection:text-teal-900 antialiased">
       <Navbar />
 
-      <div className="flex-1">{renderCurrentView()}</div>
+      <div className="flex-1 pb-20 md:pb-0">{renderCurrentView()}</div>
 
       <Footer />
+
+      {/* Native-style Bottom Navigation for Mobile */}
+      <MobileBottomNav />
 
       {/* Interactive Modals */}
       <OpportunityDetailModal />
