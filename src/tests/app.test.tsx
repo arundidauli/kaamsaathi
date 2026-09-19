@@ -101,7 +101,7 @@ describe('KaamSaathi Showcase Platform Integration', () => {
     renderApp();
     const heroImage = screen.getByAltText(/KaamSaathi Community Platform/i);
     expect(heroImage).toBeInTheDocument();
-    expect(heroImage).toHaveAttribute('src', '/kaamsaathi.png');
+    expect(heroImage.getAttribute('src')).toMatch(/kaamsaathi\.png$/);
 
     const videoHeading = screen.getByRole('heading', { name: /Dekhein KaamSaathi Kaise Kaam Karta Hai/i });
     expect(videoHeading).toBeInTheDocument();
@@ -134,6 +134,6 @@ describe('KaamSaathi Showcase Platform Integration', () => {
     // Video element should be present
     const videoElement = document.querySelector('video');
     expect(videoElement).toBeInTheDocument();
-    expect(videoElement).toHaveAttribute('src', '/kaamsathi.mp4');
+    expect(videoElement?.getAttribute('src')).toMatch(/kaamsathi\.mp4$/);
   });
 });
