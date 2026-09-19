@@ -1,7 +1,7 @@
 export const APP_CONFIG = {
   appName: 'KaamSaathi',
   tagline: 'Phone se free time ko useful banao.',
-  subTagline: 'Join karo. Participate karo. Reward pao.',
+  subTagline: 'Join karo. Simple tasks karo. Pese kamao.',
   whatsappUrl: 'https://chat.whatsapp.com/sample-kaamsaathi-community',
   telegramUrl: 'https://t.me/sample_kaamsaathi_official',
   supportEmail: 'namaste@kaamsaathi.in',

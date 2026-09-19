@@ -5,7 +5,7 @@ const PRINCIPLES = [
   'No joining fee ever',
   'No investment or recharge required',
   'Clear campaign instructions upfront',
-  'Reward amount shown before starting',
+  'Clear task details upfront',
   'Referral participation is 100% optional',
   'Suspicious or spam activity is rejected',
   'Privacy-conscious data handling',
@@ -19,7 +19,7 @@ export const TrustSection: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            Simple rules. Clear rewards.
+            Simple rules. Honest community.
           </h3>
           <p className="text-xs text-slate-500 mt-1">
             Hamare basic principles jisse har member safe rahe

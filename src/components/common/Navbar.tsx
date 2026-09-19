@@ -15,8 +15,7 @@ import { NavigationRoute } from '../../types';
 const NAV_LINKS: { id: NavigationRoute; label: string }[] = [
   { id: 'home', label: 'Home' },
   { id: 'how-it-works', label: 'How It Works' },
-  { id: 'opportunities', label: 'Opportunities' },
-  { id: 'rewards', label: 'Rewards' },
+  { id: 'rewards', label: 'Pese Kamao' },
   { id: 'community', label: 'Community' },
   { id: 'faq', label: 'FAQ' },
 ];

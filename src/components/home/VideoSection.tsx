@@ -35,7 +35,7 @@ export const VideoSection: React.FC = () => {
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            1-minute video guide mein dekhein ki hamari Indian community kaise operate karti hai aur genuine tasks se ₹ Rupees rewards kaise milte hain.
+            1-minute video guide mein dekhein ki hamari Indian community kaise operate karti hai aur simple activities se paise kaise kamaye ja sakte hain.
           </p>
 
           {/* Toggle Switch between YouTube and Local MP4 Video */}
@@ -160,8 +160,8 @@ export const VideoSection: React.FC = () => {
           </div>
           <div className="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/80 space-y-1.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <p className="font-bold text-sm text-white">3. Direct ₹ UPI Rewards</p>
-            <p className="text-xs text-slate-400">Verified activity earns direct Rupee rewards, UPI tokens, and recharge codes.</p>
+            <p className="font-bold text-sm text-white">3. Seedha Pese Kamao</p>
+            <p className="text-xs text-slate-400">Verified activity complete karke seedha UPI ya mobile recharge se pese kamao.</p>
           </div>
         </div>
       </div>

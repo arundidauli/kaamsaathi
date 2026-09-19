@@ -25,10 +25,10 @@ const STEPS = [
   },
   {
     step: '04',
-    title: 'Get Rewards',
-    desc: 'Verified activities can earn direct Rupee rewards, UPI, or recharge coupons.',
+    title: 'Pese Kamao',
+    desc: 'Verified tasks complete karke direct UPI ya recharge se pese kamao. Koi fake currency ya points nahi.',
     icon: Award,
-    highlight: 'Indian Rupee (₹)',
+    highlight: 'Pese Kamao',
   },
 ] as const;
 

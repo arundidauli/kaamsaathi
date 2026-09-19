@@ -5,8 +5,8 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     id: 'opp-follow-1',
     title: 'Follow & Support Verified Indian Tech Creator',
     category: 'Social Follow',
-    reward: 15,
-    rewardDisplay: '₹15',
+    reward: 0,
+    rewardDisplay: 'Pese Kamao',
     timeEstimate: '2 min',
     requirements: [
       'Active Indian Instagram or YouTube account',
@@ -31,8 +31,8 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     id: 'opp-follow-2',
     title: 'Follow Desi Clothing Brand Page & Like 2 Posts',
     category: 'Social Follow',
-    reward: 20,
-    rewardDisplay: '₹20',
+    reward: 0,
+    rewardDisplay: 'Pese Kamao',
     timeEstimate: '3 min',
     requirements: ['Active social profile', 'Genuine interaction (no bot accounts)'],
     description:
@@ -40,7 +40,7 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     steps: [
       'Visit the official brand profile link.',
       'Follow the brand page and like 2 recent collection posts.',
-      'Submit verification to get rewarded.',
+      'Submit verification to complete.',
     ],
     status: 'active',
     participantsCount: 114,
@@ -53,8 +53,8 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     id: 'opp-1',
     title: 'Digital Payments & Kirana UPI Experience Survey',
     category: 'Survey',
-    reward: 25,
-    rewardDisplay: '₹25',
+    reward: 0,
+    rewardDisplay: 'Pese Kamao',
     timeEstimate: '5–7 min',
     requirements: [
       'Active UPI smartphone user (GPay/PhonePe/Paytm)',
@@ -65,7 +65,7 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     steps: [
       'Open the verification questionnaire.',
       'Answer 8 short questions regarding UPI scan-and-pay speed at local shops.',
-      'Submit feedback for direct reward token.',
+      'Submit feedback for direct UPI payout.',
     ],
     status: 'active',
     participantsCount: 148,
@@ -78,8 +78,8 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     id: 'opp-2',
     title: 'Try Desi Grocery Quick Delivery App (Android Beta)',
     category: 'App Testing',
-    reward: 50,
-    rewardDisplay: '₹50',
+    reward: 0,
+    rewardDisplay: 'Pese Kamao',
     timeEstimate: '10–15 min',
     requirements: [
       'Android 10+ smartphone in India',
@@ -103,8 +103,8 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     id: 'opp-3',
     title: 'Vernacular Hindi News Portal Readability Test',
     category: 'Website Feedback',
-    reward: 30,
-    rewardDisplay: '₹30',
+    reward: 0,
+    rewardDisplay: 'Pese Kamao',
     timeEstimate: '8 min',
     requirements: ['Mobile browser', 'Hindi font comfort rating'],
     description:
@@ -124,8 +124,8 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     id: 'opp-follow-3',
     title: 'Join Verified Cricket Analysis Channel (Telegram/YouTube)',
     category: 'Social Follow',
-    reward: 15,
-    rewardDisplay: '₹15',
+    reward: 0,
+    rewardDisplay: 'Pese Kamao',
     timeEstimate: '2 min',
     requirements: ['Active cricket fan', 'Stay subscribed for match updates'],
     description:
@@ -133,7 +133,7 @@ export const INITIAL_OPPORTUNITIES: OpportunityItem[] = [
     steps: [
       'Click and join the verified channel.',
       'Turn on notifications for match day tips.',
-      'Confirm handle to receive ₹15 reward.',
+      'Confirm handle to verify participation.',
     ],
     status: 'active',
     participantsCount: 210,

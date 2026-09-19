@@ -28,12 +28,21 @@ describe('KaamSaathi Showcase Platform Integration', () => {
     expect(mainHeading).toHaveTextContent(/useful banao/i);
   });
 
-  it('navigates to the Opportunities section when clicked', () => {
+  it('renders Pese Kamao in the hero floating badge and removes +₹15 Follow Reward', () => {
     renderApp();
-    const oppButtons = screen.getAllByRole('button', { name: /Opportunities/i });
-    fireEvent.click(oppButtons[0]);
+    // Verify that "+₹15 Follow Reward" is NOT in the document
+    expect(screen.queryByText(/\+₹15 Follow Reward/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/₹15/)).not.toBeInTheDocument();
 
-    expect(screen.getByText(/Sample Active Tasks & Campaigns/i)).toBeInTheDocument();
+    // Verify "Pese Kamao" badge is present
+    const peseKamaoBadges = screen.getAllByText(/Pese Kamao/i);
+    expect(peseKamaoBadges.length).toBeGreaterThan(0);
+  });
+
+  it('does NOT render the Sample Active Tasks & Campaigns section', () => {
+    renderApp();
+    // The section "Sample Active Tasks & Campaigns" must be removed
+    expect(screen.queryByText(/Sample Active Tasks & Campaigns/i)).not.toBeInTheDocument();
   });
 
   it('navigates to How It Works section when clicked', () => {
@@ -42,14 +51,19 @@ describe('KaamSaathi Showcase Platform Integration', () => {
     fireEvent.click(howButtons[0]);
 
     expect(screen.getByRole('heading', { name: /How It Works/i })).toBeInTheDocument();
+    expect(screen.getByText(/Seedha aur Aasaan Process/i)).toBeInTheDocument();
   });
 
-  it('navigates to Rewards section when clicked', () => {
+  it('navigates to Pese Kamao (rewards) section when clicked', () => {
     renderApp();
-    const rewardButtons = screen.getAllByRole('button', { name: /Rewards/i });
-    fireEvent.click(rewardButtons[0]);
+    const peseKamaoButtons = screen.getAllByRole('button', { name: /Pese Kamao/i });
+    fireEvent.click(peseKamaoButtons[0]);
 
-    expect(screen.getByText(/Small rewards can make a difference/i)).toBeInTheDocument();
+    expect(screen.getByText(/Phone se free time mein pese kamao/i)).toBeInTheDocument();
+    expect(screen.getByText(/Pese Kaise Milte Hain/i)).toBeInTheDocument();
+    // Verify that fake arbitrary money amounts like +₹20 or +₹50 do not exist
+    expect(screen.queryByText(/\+₹20/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/\+₹50/)).not.toBeInTheDocument();
   });
 
   it('navigates to FAQ section and toggles accordion items', () => {
@@ -64,37 +78,15 @@ describe('KaamSaathi Showcase Platform Integration', () => {
     expect(screen.getByText(/100% free/i)).toBeInTheDocument();
   });
 
-  it('opens detail modal when Details button is clicked on an opportunity', () => {
-    renderApp();
-    const detailButtons = screen.getAllByRole('button', { name: /Details/i });
-    fireEvent.click(detailButtons[0]);
-
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
-    expect(screen.getByText(/About This Opportunity/i)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Join Community to Participate/i })).toBeInTheDocument();
-
-    const closeButtons = screen.getAllByRole('button', { name: /Close/i });
-    fireEvent.click(closeButtons[0]);
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-  });
-
-  it('filters opportunities by category', () => {
-    renderApp();
-    const surveyFilter = screen.getByRole('button', { name: 'Survey' });
-    fireEvent.click(surveyFilter);
-
-    expect(surveyFilter).toHaveClass('bg-teal-700');
-  });
-
-  it('supports mobile bottom navigation to switch sections', () => {
+  it('supports mobile bottom navigation to switch to Pese Kamao', () => {
     renderApp();
     const mobileNav = screen.getByRole('navigation', { name: /Mobile Bottom Navigation/i });
     expect(mobileNav).toBeInTheDocument();
 
-    const tasksTab = within(mobileNav).getByRole('button', { name: /^Tasks$/i });
-    fireEvent.click(tasksTab);
+    const peseKamaoTab = within(mobileNav).getByRole('button', { name: /Pese Kamao/i });
+    fireEvent.click(peseKamaoTab);
 
-    expect(screen.getByText(/Sample Active Tasks & Campaigns/i)).toBeInTheDocument();
+    expect(screen.getByText(/Phone se free time mein pese kamao/i)).toBeInTheDocument();
   });
 
   it('navigates to Rules & Terms page', () => {
@@ -145,4 +137,3 @@ describe('KaamSaathi Showcase Platform Integration', () => {
     expect(videoElement).toHaveAttribute('src', '/kaamsathi.mp4');
   });
 });
-

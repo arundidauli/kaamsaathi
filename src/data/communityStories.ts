@@ -14,7 +14,7 @@ export const COMMUNITY_STORIES: CommunityStory[] = [
     city: 'Moradabad, UP',
     role: 'Freelancer',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
-    quote: 'Sabse badiya baat hai ki koi fake botting ya dollar system nahi hai. Direct Indian Rupee (₹) rewards hain aur steps bilkul seedhe hain.',
+    quote: 'Sabse badiya baat hai ki koi fake botting ya dollar system nahi hai. Seedha UPI se paise milte hain aur free time mein aasan tasks se pese kamao.',
     verifiedTasks: '8 verified activities'
   },
   {

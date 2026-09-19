@@ -5,7 +5,7 @@ import { APP_CONFIG } from '../../config/appConfig';
 export const ReferralSection: React.FC = () => {
   const handleShareWhatsAppReferral = () => {
     const text = encodeURIComponent(
-      `Check out KaamSaathi! Genuine Indian community to complete creator follows, surveys, and app testing for pure Indian Rupee (₹) rewards. 100% Free: https://kaamsaathi.in`
+      `Check out KaamSaathi! Genuine Indian community jahan free time mein creator follows aur surveys karke direct paise kama sakte hain. 100% Free: https://kaamsaathi.in`
     );
     window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank', 'noopener,noreferrer');
   };
@@ -25,7 +25,7 @@ export const ReferralSection: React.FC = () => {
             </h2>
 
             <p className="text-xs sm:text-base text-teal-100/90 leading-relaxed">
-              Jab aapka invited member eligible community activity complete karta hai, applicable campaigns mein transparent direct referral reward milta hai.
+              Jab aapka invited friend community activity join karta hai, applicable campaigns mein direct referral benefit milta hai.
             </p>
 
             {/* Direct Flow Visual */}

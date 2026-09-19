@@ -1,10 +1,8 @@
 import React from 'react';
 import { Users, CheckCircle2 } from 'lucide-react';
 import { COMMUNITY_STORIES } from '../../data/communityStories';
-import { useApp } from '../../hooks/useApp';
 
 export const CommunityStoriesSection: React.FC = () => {
-  const { opportunities } = useApp();
 
   return (
     <section className="py-16 sm:py-20 bg-white border-t border-slate-200/80">
@@ -76,20 +74,20 @@ export const CommunityStoriesSection: React.FC = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 text-center">
             <div>
-              <p className="text-3xl sm:text-4xl font-black text-white">127</p>
-              <p className="text-xs text-slate-300 font-medium mt-1">Community Members</p>
+              <p className="text-3xl sm:text-4xl font-black text-white">100%</p>
+              <p className="text-xs text-slate-300 font-medium mt-1">Free Community</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl font-black text-teal-400">{opportunities.length}</p>
-              <p className="text-xs text-slate-300 font-medium mt-1">Active Opportunities</p>
+              <p className="text-3xl sm:text-4xl font-black text-teal-400">Desi</p>
+              <p className="text-xs text-slate-300 font-medium mt-1">Real Indian Members</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl font-black text-emerald-400">342</p>
-              <p className="text-xs text-slate-300 font-medium mt-1">Completed Activities</p>
+              <p className="text-3xl sm:text-4xl font-black text-emerald-400">UPI</p>
+              <p className="text-xs text-slate-300 font-medium mt-1">Direct Payouts</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl font-black text-amber-300">₹18,450</p>
-              <p className="text-xs text-slate-300 font-medium mt-1">Rewards Distributed</p>
+              <p className="text-3xl sm:text-4xl font-black text-amber-300">Pese Kamao</p>
+              <p className="text-xs text-slate-300 font-medium mt-1">Free Time Activities</p>
             </div>
           </div>
         </div>

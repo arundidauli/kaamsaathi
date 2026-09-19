@@ -10,12 +10,12 @@ export const FAQS: FAQItem[] = [
     a: 'No. This website is a platform showcase and informational portal. All active opportunities, surveys, and follow tasks are published and verified within our official WhatsApp and Telegram community groups.'
   },
   {
-    q: 'How do community members receive rewards?',
-    a: 'Once a campaign task (like following a verified creator or answering a survey) is verified, rewards are sent directly via UPI (PhonePe, GPay, Paytm) or digital mobile recharge coupons.'
+    q: 'How do community members receive payouts / pese kaise milte hain?',
+    a: 'Jab aap kisi verified campaign ka task (jaise Indian creator ko follow karna ya survey answer karna) complete karte hain, verification ke baad seedha UPI (PhonePe, GPay, Paytm) ya mobile recharge coupons ke through paise milte hain.'
   },
   {
-    q: 'Is income or reward guaranteed?',
-    a: 'No. Rewards depend strictly on available brand/creator campaigns and verified submissions. We do not guarantee a fixed daily or monthly wage.'
+    q: 'Kya koi fixed earning ya income guaranteed hai?',
+    a: 'Nahi. Pese strictly available brand aur creator campaigns par nirbhar karte hain. Hum koi fixed number ya daily wage promise nahi karte.'
   },
   {
     q: 'Do I have to invite other people to participate?',

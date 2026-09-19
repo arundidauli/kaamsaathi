@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Compass, Gift, Users, MessageSquare } from 'lucide-react';
+import { Home, Compass, IndianRupee, Users, MessageSquare } from 'lucide-react';
 import { useApp } from '../../hooks/useApp';
 import { APP_CONFIG } from '../../config/appConfig';
 import { NavigationRoute } from '../../types';
@@ -10,7 +10,7 @@ export const MobileBottomNav: React.FC = () => {
   const NAV_ITEMS: { id: NavigationRoute; label: string; icon: React.FC<{ className?: string }> }[] = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'how-it-works', label: 'Process', icon: Compass },
-    { id: 'opportunities', label: 'Tasks', icon: Gift },
+    { id: 'rewards', label: 'Pese Kamao', icon: IndianRupee },
     { id: 'community', label: 'Community', icon: Users },
   ];
 

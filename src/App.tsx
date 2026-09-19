@@ -4,12 +4,10 @@ import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { Toast } from './components/common/Toast';
 import { MobileBottomNav } from './components/common/MobileBottomNav';
-import { OpportunityDetailModal } from './components/modals/OpportunityDetailModal';
 import { HeroSection } from './components/home/HeroSection';
 import { VideoSection } from './components/home/VideoSection';
 import { HowItWorksSection } from './components/home/HowItWorksSection';
 import { SocialGrowthSection } from './components/home/SocialGrowthSection';
-import { OpportunitiesSection } from './components/opportunities/OpportunitiesSection';
 import { RewardsSection } from './components/home/RewardsSection';
 import { CommunityStoriesSection } from './components/home/CommunityStoriesSection';
 import { ReferralSection } from './components/home/ReferralSection';
@@ -37,8 +35,10 @@ export const AppContent: React.FC = () => {
       case 'opportunities':
         return (
           <div>
-            <OpportunitiesSection />
+            <HowItWorksSection />
+            <VideoSection />
             <SocialGrowthSection />
+            <RewardsSection />
             <JoinCTASection />
           </div>
         );
@@ -85,7 +85,6 @@ export const AppContent: React.FC = () => {
             <VideoSection />
             <HowItWorksSection />
             <SocialGrowthSection />
-            <OpportunitiesSection />
             <RewardsSection />
             <CommunityStoriesSection />
             <ReferralSection />
@@ -107,9 +106,6 @@ export const AppContent: React.FC = () => {
 
       {/* Mobile Bottom Navigation Bar */}
       <MobileBottomNav />
-
-      {/* Opportunity Detail Modal */}
-      <OpportunityDetailModal />
 
       {/* Toast Notification */}
       <Toast />

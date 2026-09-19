@@ -51,7 +51,7 @@ export const HeroSection: React.FC = () => {
             <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
               KaamSaathi ek digital Indian community platform hai jahan members ko <strong>real social creator follows</strong>,{' '}
               app testing, feedback aur genuine surveys milte hain. Real Indian creators aur local businesses ko grow karne mein{' '}
-              help karo aur seedha <strong>₹ Indian Rupees</strong> reward pao.
+              help karo aur free time mein seedha <strong>pese kamao</strong>.
             </p>
 
             {/* CTAs */}
@@ -68,11 +68,11 @@ export const HeroSection: React.FC = () => {
               </a>
 
               <button
-                onClick={() => navigateTo('opportunities')}
+                onClick={() => navigateTo('how-it-works')}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs hover:border-slate-300 active:scale-98 transition-all text-sm"
               >
                 <UserPlus className="w-4 h-4 text-emerald-600" />
-                <span>Explore Tasks</span>
+                <span>Kaise Kaam Karta Hai</span>
               </button>
 
               <a
@@ -146,16 +146,16 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Floating Badge 1 - Real Rupee Reward */}
+              {/* Floating Badge 1 - Pese Kamao */}
               <div className="absolute -top-3 left-2 sm:-top-5 sm:-left-5 bg-white/95 backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 sm:gap-3 animate-float-slow z-20">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black shrink-0">
                   <IndianRupee className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <span className="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase tracking-wider block">
-                    Verified Reward
+                    Free Time Activity
                   </span>
-                  <span className="text-xs sm:text-sm font-extrabold text-slate-900">+₹15 Follow Reward</span>
+                  <span className="text-xs sm:text-sm font-extrabold text-slate-900">Pese Kamao</span>
                 </div>
               </div>
 

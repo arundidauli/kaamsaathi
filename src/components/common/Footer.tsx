@@ -56,13 +56,8 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => navigateTo('opportunities')} className="hover:text-white transition">
-                  Opportunities
-                </button>
-              </li>
-              <li>
                 <button onClick={() => navigateTo('rewards')} className="hover:text-white transition">
-                  Rewards Structure
+                  Pese Kamao
                 </button>
               </li>
             </ul>
