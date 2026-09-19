@@ -6,6 +6,7 @@ import { Toast } from './components/common/Toast';
 import { MobileBottomNav } from './components/common/MobileBottomNav';
 import { OpportunityDetailModal } from './components/modals/OpportunityDetailModal';
 import { HeroSection } from './components/home/HeroSection';
+import { VideoSection } from './components/home/VideoSection';
 import { HowItWorksSection } from './components/home/HowItWorksSection';
 import { SocialGrowthSection } from './components/home/SocialGrowthSection';
 import { OpportunitiesSection } from './components/opportunities/OpportunitiesSection';
@@ -26,6 +27,7 @@ export const AppContent: React.FC = () => {
         return (
           <div>
             <HowItWorksSection />
+            <VideoSection />
             <SocialGrowthSection />
             <TrustSection />
             <JoinCTASection />
@@ -80,6 +82,7 @@ export const AppContent: React.FC = () => {
         return (
           <main>
             <HeroSection />
+            <VideoSection />
             <HowItWorksSection />
             <SocialGrowthSection />
             <OpportunitiesSection />

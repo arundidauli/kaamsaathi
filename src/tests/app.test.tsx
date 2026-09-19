@@ -104,4 +104,45 @@ describe('KaamSaathi Showcase Platform Integration', () => {
 
     expect(screen.getByText(/Zero Investment Policy/i)).toBeInTheDocument();
   });
+
+  it('renders hero image with kaamsaathi.png and video explainer section', () => {
+    renderApp();
+    const heroImage = screen.getByAltText(/KaamSaathi Community Platform/i);
+    expect(heroImage).toBeInTheDocument();
+    expect(heroImage).toHaveAttribute('src', '/kaamsaathi.png');
+
+    const videoHeading = screen.getByRole('heading', { name: /Dekhein KaamSaathi Kaise Kaam Karta Hai/i });
+    expect(videoHeading).toBeInTheDocument();
+
+    const youtubeBtn = screen.getByRole('button', { name: /YouTube Video/i });
+    expect(youtubeBtn).toBeInTheDocument();
+
+    const hdBtn = screen.getByRole('button', { name: /HD Video/i });
+    expect(hdBtn).toBeInTheDocument();
+  });
+
+  it('toggles video playback when play button is clicked', () => {
+    renderApp();
+    const playTrigger = screen.getByRole('button', { name: /Play KaamSaathi explainer video/i });
+    expect(playTrigger).toBeInTheDocument();
+
+    fireEvent.click(playTrigger);
+
+    // After clicking, iframe is rendered for YouTube player
+    const iframe = screen.getByTitle(/KaamSaathi Platform Explainer Video/i);
+    expect(iframe).toBeInTheDocument();
+    expect(iframe).toHaveAttribute('src', expect.stringContaining('61MJxVKKxZE'));
+  });
+
+  it('switches to HD local video mode when clicked', () => {
+    renderApp();
+    const hdBtn = screen.getByRole('button', { name: /HD Video/i });
+    fireEvent.click(hdBtn);
+
+    // Video element should be present
+    const videoElement = document.querySelector('video');
+    expect(videoElement).toBeInTheDocument();
+    expect(videoElement).toHaveAttribute('src', '/kaamsathi.mp4');
+  });
 });
+

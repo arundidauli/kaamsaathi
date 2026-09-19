@@ -8,12 +8,21 @@ import {
   IndianRupee,
   Sparkles,
   ShieldCheck,
+  Play,
 } from 'lucide-react';
 import { useApp } from '../../hooks/useApp';
 import { APP_CONFIG } from '../../config/appConfig';
 
 export const HeroSection: React.FC = () => {
   const { navigateTo } = useApp();
+
+  const handleScrollToVideo = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.getElementById('video-guide');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="relative overflow-hidden pt-6 pb-12 sm:pt-10 sm:pb-16 md:pt-14 md:pb-24 bg-gradient-to-b from-teal-50/70 via-emerald-50/30 to-white">
@@ -46,12 +55,12 @@ export const HeroSection: React.FC = () => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1 flex-wrap">
               <a
                 href={APP_CONFIG.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/25 active:scale-98 transition-all text-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/25 active:scale-98 transition-all text-sm"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Join WhatsApp Community</span>
@@ -60,18 +69,20 @@ export const HeroSection: React.FC = () => {
 
               <button
                 onClick={() => navigateTo('opportunities')}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs hover:border-slate-300 active:scale-98 transition-all text-sm"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs hover:border-slate-300 active:scale-98 transition-all text-sm"
               >
                 <UserPlus className="w-4 h-4 text-emerald-600" />
-                <span>Explore Sample Tasks</span>
+                <span>Explore Tasks</span>
               </button>
 
-              <button
-                onClick={() => navigateTo('how-it-works')}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl font-bold text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-200 transition-all text-xs sm:text-sm"
+              <a
+                href="#video-guide"
+                onClick={handleScrollToVideo}
+                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl font-bold text-amber-900 bg-amber-100 hover:bg-amber-200/80 border border-amber-200 shadow-xs transition-all text-xs sm:text-sm active:scale-98"
               >
-                <span>How It Works →</span>
-              </button>
+                <Play className="w-3.5 h-3.5 fill-amber-700 text-amber-700" />
+                <span>Watch Video (1 min)</span>
+              </a>
             </div>
 
             {/* Honest Trust Metrics */}
@@ -96,18 +107,28 @@ export const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Hero Right: Mobile Friendly Image & Floating Cards */}
+          {/* Hero Right: kaamsaathi.png Image & Video Trigger */}
           <div className="lg:col-span-5 relative mt-2 lg:mt-0">
             <div className="relative mx-auto max-w-sm sm:max-w-md">
-              {/* Main Image Container */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-4/3 sm:aspect-square">
+              {/* Main Image Container using user's kaamsaathi.png */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-4/3 sm:aspect-square group">
                 <img
                   src={APP_CONFIG.heroImage}
-                  alt="Indian smartphone user enjoying productive free time"
-                  className="w-full h-full object-cover object-center"
+                  alt="KaamSaathi Community Platform"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
+
+                {/* Center Video Play Badge on Image */}
+                <a
+                  href="#video-guide"
+                  onClick={handleScrollToVideo}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-600/90 hover:bg-emerald-500 text-white shadow-2xl backdrop-blur-xs flex items-center justify-center transition-transform hover:scale-110 active:scale-95 group/play"
+                  aria-label="Play explainer video"
+                >
+                  <Play className="w-6 h-6 sm:w-7 sm:h-7 ml-1 fill-white" />
+                </a>
 
                 {/* Bottom Overlay Label */}
                 <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 text-white">
@@ -125,7 +146,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Responsive Floating Badge 1 - Real Rupee Reward */}
+              {/* Floating Badge 1 - Real Rupee Reward */}
               <div className="absolute -top-3 left-2 sm:-top-5 sm:-left-5 bg-white/95 backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5 sm:gap-3 animate-float-slow z-20">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black shrink-0">
                   <IndianRupee className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -138,7 +159,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Responsive Floating Badge 2 - Real Follower Activity */}
+              {/* Floating Badge 2 - Real Follower Activity */}
               <div className="absolute -bottom-4 right-2 sm:-bottom-5 sm:-right-5 bg-slate-900/95 text-white backdrop-blur-md p-2.5 sm:p-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-2.5 sm:gap-3 animate-float-delayed z-20">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-teal-500/20 border border-teal-400/30 text-teal-400 flex items-center justify-center shrink-0">
                   <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
